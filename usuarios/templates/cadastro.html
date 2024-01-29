@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+{% load static %}
+{% block 'cabecalho' %}
+<link href="{% static 'usuarios/css/cadastro.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block 'conteudo' %}
+    <div class='main-box'>
+        <!-- primeira etapa -->
+        <div class='container-1'>
+            <div class="column-2">
+                <div class="main-logo">
+                    <img src="{% static "usuarios/img/logo.png" %}">
+                </div>
+                <h3>
+                    Seja bem vindo!
+                </h3>
+                <h4>
+                    Realize o login ao lado para acessar o sistema
+                </h4>
+                <h4>
+                    Caso seja seu primeiro acesso, cadastre-se abaixo
+                </h4>
+                <button class='btn-cadastro' id="sign-in">
+                    Cadastrar
+                </button>
+            </div>
+            <div class="column-1">
+                <div class="rect">
+                    <h4>
+                        Login
+                        {% if messages %}
+                            {% for message in messages %}
+                                <section class="alert {{message.tags}}">
+                                    {{message}}
+                                </section>
+                            {% endfor %}
+                        {% endif %}
+                    </h4>
+                    
+                    <div class='box-form'>
+                        <form action="{% url "logar" %}" method="POST">{% csrf_token %}
+                            <label>Usuário</label>
+                            <input type="text" placeholder="Usuário" class="input-form" name="username" id="">
+                            <br>
+                            <br>
+                            <label>Senha</label>
+                            <input type="password" placeholder="Senha" class="input-form" name="senha" id="">
+                            <br>
+                            <br>
+                            <input type="submit" value="login" class="btn-cadastro">
+                            <br>
+                        </form>
+                    </div>    
+                </div>
+            </div>
+        </div>
+        <!-- segunda etapa -->  
+        <div class='container-2'>
+            <div class="column-1">
+                <div class="rect">
+                    <h4>
+                        Cadastro
+                    </h4>
+                    <div class='box-form'>
+                        <form action="{% url "cadastro" %}" method="POST">{% csrf_token %}
+                            <label>Usuário</label>
+                            <input type="text" placeholder="Usuário" class="input-form" name="username" id="">
+                            <br>
+                            <br>
+                            <label>Senha</label>
+                            <input type="password" placeholder="Senha" class="input-form" name="senha" id="">
+                            <br>
+                            <br>
+                            <label>Confirmar senha</label>
+                            <input type="password" placeholder="Repita a senha" class="input-form" name="confirmar_senha" id="">
+                            <br>
+                            <br>
+                            <input type="submit" value="Cadastrar" class="btn-cadastro">
+                            <br>
+                        </form>
+                    </div>    
+                </div>
+            </div>
+            <div class="column-2">
+                <div class="main-logo">
+                    <img src="{% static "usuarios/img/logo.png" %}">
+                </div>
+                <h3>
+                    Seja bem vindo!
+                </h3>
+                <h4>
+                    Realize o cadastro ao lado para acessar o sistema
+                </h4>
+                <h4>
+                    Se ja possuir uma conta, conecte-se abaixo
+                </h4>
+                <button class='btn-login' id="sign-up">
+                    Entrar
+                </button>
+            </div>
+    </div>
+    <script src="{% static 'usuarios/js/login.js' %}"></script>
+{% endblock 'conteudo' %}

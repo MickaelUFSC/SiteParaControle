@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% load static %}
+{% block 'cabecalho' %}
+<link rel="stylesheet" href="{% static 'produtos/css/produtos.css' %}">
+{% endblock %}
+
+{% block 'conteudo' %}
+    {% include "partials/header.html" %}
+    <div class='main-box'>
+        <div class='container'>
+
+            <div class='row'>
+                <div class='col-md-12'>
+                    <h1 class='title'>Novo produto</h1>
+                    <div class='col-10'>
+                        {% if messages %}
+                            {% for message in messages %}
+                                <section class="alert {{message.tags}}">
+                                    {{message}}
+                                </section>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+
+                </div>
+            </div>
+
+            <div class='row'>
+                <form action="{% url "novo_produto" %}" method="POST"> {% csrf_token %}
+                    <br>
+                    <div class='row'>
+                        <div class='col-9'>
+                            <label>Nome do produto</label>
+                            <input type="text" class="form-control" placeholder="Nome do produto" name="nome">
+                        </div>
+                        <div class='col-1'>
+                            <label for="">Unidade</label>
+                            <select class="form-select" name="unidade">
+                                {% for un in unidades %}
+                                    <option value="{{un.1}}">{{un.0}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <br>
+
+                    <div class='row'>
+                        <div class='col-2'>
+                            <label for="">Categoria</label>
+                            <select class="form-select" name="categoria">
+                                {% for categoria in categorias %}
+                                    <option value="{{categoria.id}}">{{categoria.nome}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class='col-4'>
+                            <label for="">Preço</label>
+                            <input type="number" class="form-control" placeholder="Preço 0,00" step="0.01" name="preco">
+                        </div>
+                        <div class='col-4'>
+                            <label for="">Imagem</label>
+                            <input type="file" class="form-control" name="imagem" placeholder="selecione">
+                        </div>
+                    </div>
+                    <br>
+                    <div class='row'>
+                        <div class='col-10'>
+                            <label for="">Descrição</label>
+                            <textarea class="form-control" placeholder="Descrição do produto" name="descricao"></textarea>
+                        </div>
+                    </div>
+                    <br>
+                    <div class='row'>
+                        <div class='row-cols-4'>
+                            <button type="submit" class="btn btn-primary">Salvar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
+

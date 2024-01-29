@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block 'cabecalho' %}
+    <link href="{% static 'vendas/css/vendas.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block 'conteudo' %}
+    {% include "partials/header.html" %}
+    <div class='back'>
+        <div class='container'>
+            <h1>Nova Venda</h1>
+            <br>
+            <form method="POST" action="{% url 'nova_venda' %}">
+                {% csrf_token %}
+                <div class='row'>
+                    <label for="cliente">Cliente:</label>
+                    <select name="cliente" id="cliente" class='cliente'>
+                        {% for cliente in clientes %}
+                            <option value="{{ cliente.id }}">{{ cliente.nome }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <br>
+                <div class='row2'>
+                    <div class='coluna1'>
+                        <label for="produto">Produto:</label>
+                        <br>
+                        <select name="produto" id="produto" class='prod' multiple>
+                            {% for produto in produtos %}
+                                <option value="{{ produto.id }}">{{ produto.nome }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class='coluna2'>
+                        <label for="quantidade">Quantidade:</label>
+                        <br>
+                        <input class='qt' type="number" name="quantidade" id="quantidade">
+                    </div>
+                    <div class='coluna3'>
+                        <label for="valor">Valor:</label>
+                        <br>
+                        <input class='valor' type="number" name="valor" id="valor">
+                    </div>
+                    <input class='add' type="submit" value="+">
+                </div>
+                <br>
+                <div class='row'>
+                    <input type="submit" value="Registrar Venda">
+                </div>
+            </form>        
+        </div>
+    </div>
+{% endblock %}

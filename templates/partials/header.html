@@ -1,0 +1,44 @@
+<nav style="background-color: var(--main-color)" class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" href="#" style="margin-left: 10px;">Perfilmak</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Produtos
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="{% url 'novo_produto' %}">Novo Produto</a></li>
+                    <li><a class="dropdown-item" href="{% url 'listar_produtos' %}">Listar Produtos</a></li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Vendas
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="{% url 'nova_venda' %}">Nova Venda</a></li>
+                    <li><a class="dropdown-item" href="{% url 'listar_produtos' %}">Listar Vendas</a></li>
+                    <li><a class="dropdown-item" href="{% url 'listar_produtos' %}">Cadastrar Cliente</a></li>
+                    <li><a class="dropdown-item" href="{% url 'listar_produtos' %}">Listar Clientes</a></li>
+                </ul>
+            </li>
+            <li class="nav-item ml-auto">
+                <a class="nav-link" href="{% url "logout" %}">Sair</a>
+            </li>
+        </ul>
+    </div>
+    <style>
+        .navbar-nav .ml-auto {
+            margin-left: auto !important;
+        }
+        
+        .navbar-nav .nav-item {
+            margin-right: 15px; /* Ajuste conforme necessário para o espaçamento desejado */
+        }
+        .navbar-nav{
+            width: 100%;
+    </style>
+</nav>

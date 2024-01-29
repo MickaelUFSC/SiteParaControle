@@ -1,0 +1,121 @@
+* {
+    margin: 0;
+    padding: 0;
+    color: var(--main-color);
+}
+
+
+.frase {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    font-size: 30px;
+}
+.bg1 {
+    background-image: url('/static/usuarios/img/bg1.png') !important;
+    height: 100vh;
+    background-size: cover;
+}
+
+
+.titulo-fonte {
+    margin-top: 20px;
+}
+
+.box-titulo {
+    display: flex;
+    align-items: center;
+    background-color: #0b1526;
+}
+
+.box-titulo-item {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    color: var(--contrast-color);
+
+}
+.box-titulo-item h3{
+    margin-bottom: 0;
+}
+
+.box-titulo img {
+    max-width: 50px;
+    max-height: 50px;
+}
+
+
+.divisor {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, transparent, rgb(162, 219, 236), transparent);
+    display: block;
+}
+
+.tac {
+    text-align: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.box-form {
+    padding: 20px;
+    background-color: rgba(217, 217, 217, .05);
+    color: var(--main-color) !important;
+}
+
+.box-circle {
+    display: flex;
+    gap: 5px;
+}
+
+.circle {
+    width: 16px;
+    height: 16px;
+    border-radius: 8px;
+}
+
+.c1 {
+    background-color: #3E79EB;
+}
+
+.c2 {
+    background-color: #29BFC9;
+}
+
+.c3 {
+    background-color: #D98562;
+}
+
+.input-form {
+    background-color: #0b1526;
+    padding: 10px;
+    border: none;
+    border: 1px solid var(--differential-color);
+    color: white;
+    outline: 0;
+    width: 100%;
+}
+
+.btn-cadastro {
+    padding: 10px;
+    background-color: #58fcd5;
+    border: none;
+    border: 1px solid #58fcd5;
+    font-size: 18px;
+    font-weight: bold;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.col-md{
+    max-width: 30%;
+}
+.row{
+    justify-content: center;
+}
+.container-1{
+    width: 100vw;
+}

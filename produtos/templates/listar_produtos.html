@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block 'cabecalho' %}
+    <link href="{% static 'produtos/css/produtos.css' %}" rel="stylesheet">
+    <link href="{% static 'produtos/css/listar_produto.css' %}" rel="stylesheet">
+{% endblock 'cabecalho' %}
+
+{% block 'conteudo' %}
+{% include "partials/header.html" %}
+    <div class="container">
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-3">
+                <form action="}" method="GET">
+                    <label for="">Categoria</label>
+                    <select name="categoria" class="form-select">
+                    </select>
+            </div>
+            <div class="col-md">
+                <br>
+                <input type="submit" value="Filtrar" class="btn-cadastro">
+                </form>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="box-listar">
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nome do Produto</th>
+                        <th scope="col">Unidade</th>
+                        <th scope="col">Preço</th>
+                        <th scope="col">Categoria</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for produto in produtos %}
+                        <tr class="linha" >
+                            <a href="{% url "editar_produto" produto.id%}"></a>
+                            <th><a href="{% url "editar_produto" produto.id%}">{{produto.id}}</a></th>
+                            <td><a href="{% url "editar_produto" produto.id%}">{{produto.nome}}</a></td>
+                            <td><a href="{% url "editar_produto" produto.id%}">{{produto.unidade}} </a></td><!-- get_dificuldade_display() retorna o valor do campo dificuldade no dicionário -->
+                            <td><a href="{% url "editar_produto" produto.id%}">{{produto.preco}}</a></td>
+                            <td><a href="{% url "editar_produto" produto.id%}">{{produto.categoria}}</a></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+{% endblock 'conteudo' %}
